@@ -16,15 +16,15 @@ pipeline {
     stages {
         stage('Stage One') {           
             steps { 
-                sh '''
-                    echo DevOps Training
-                    echo AWS training
-                    echo Batch54
-                    echo Name of the URL is ${ENV_URL}
+                   sh '''
+                       echo DevOps Training
+                       echo AWS training
+                       echo Batch54
+                       echo Name of the URL is ${ENV_URL}
 
-                    env
+                       env
 
-                '''
+                    '''
             }   
         }     
 
