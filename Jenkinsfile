@@ -11,10 +11,10 @@ pipeline {
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
      }
-     triggers { pollSCM('H/1 * * * *') }
+     triggers { pollSCM('*/1 * * * *') }
 
     stages {
-        stage('Stage One') {           
+        stage('Stage ONE') {           
             steps { 
                 sh '''
                     echo DevOps Training
@@ -28,17 +28,16 @@ pipeline {
             }   
         }     
 
-        stage('Stage Two') {
+        stage('Stage TWO') {
             environment {
                 ENV_URL = "stage.google.com"                  // Stage  variable
             }
             steps {
-                echo "This is stage two"
-                echo "Name of the URL is ${ENV_URL}"           
+                echo "This is stage two"                        
             }
         }
 
-        stage('Stage Three') {
+        stage('Stage THREE') {
             steps {
                 sh '''
                 echo "This is stage three"
