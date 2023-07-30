@@ -13,6 +13,7 @@ pipeline {
                     echo Batch54
                     echo Name of the URL is ${ENV_URL}
 
+                    env
                 '''
             }   
         }     
