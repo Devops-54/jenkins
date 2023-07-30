@@ -10,11 +10,11 @@ pipeline {
         booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-     }
-     triggers { pollSCM('*/1 * * * *') }
+    }
+    triggers { pollSCM('*/1 * * * *') }
 
     stages {
-        stage('Stage ONE') {           
+        stage('Stage One') {           
             steps { 
                 sh '''
                     echo DevOps Training
