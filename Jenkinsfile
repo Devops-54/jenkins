@@ -12,7 +12,7 @@ pipeline {
             }   
         }     
 
-        stage{'Stage Two'} {
+        stage('Stage Two') {
 
             steps {
 
@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-        stage{'Stage Three'} {
+        stage('Stage Three') {
 
             steps {
 
