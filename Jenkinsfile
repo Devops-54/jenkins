@@ -7,7 +7,12 @@ pipeline {
            
             steps { 
 
-                echo "This is stage one"
+                sh '''
+                    echo DevOps Training
+                    echo AWS training
+                    echo Batch54
+                
+                '''
 
             }   
         }     
