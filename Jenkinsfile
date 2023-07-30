@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('Stage One') {           
             steps { 
-                   sh '''
+                    sh '''
                        echo DevOps Training
                        echo AWS training
                        echo Batch54
