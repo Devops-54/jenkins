@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'WS'
+    }
     environment {
         ENV_URL         = "pipeline.google.com"                // Pipeline variable   
         SSHCRED         = credentials('SSH_CRED')      
@@ -11,7 +13,8 @@ pipeline {
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
-    triggers { pollSCM('*/1 * * * *') }
+
+    // triggers { pollSCM('*/1 * * * *') }
 
     stages {
         stage('Parallel Stages') {
@@ -19,7 +22,8 @@ pipeline {
                 stage('In Parallel 1') {
                         steps {
                             echo "In Parallel 1"
-                            sleep 1
+                            sh "sleep 1"
+                            sh "hostname"
                         }
                     }
                 stage('In Parallel 2') {
@@ -83,7 +87,7 @@ pipeline {
                 echo "This is stage three"
                 echo "Name of the URL is ${ENV_URL}"
                 echo -e "\\e[31m Hai"
-                sleep 10 
+                sleep 1 
 
                 '''
             }
@@ -95,7 +99,7 @@ pipeline {
                  echo "This is stage Four"
                  echo "Name of the URL is ${ENV_URL}"
                  echo -e "\\e[31m Welcome"
-                 sleep 10 
+                 sleep 1 
 
                  '''
             }
