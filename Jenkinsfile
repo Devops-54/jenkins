@@ -14,6 +14,28 @@ pipeline {
     triggers { pollSCM('*/1 * * * *') }
 
     stages {
+        stage('Parallel Stages') {
+            parallel {
+                stage('In Parallel 1') {
+                        steps {
+                            echo "In Parallel 1"
+                            sleep 1
+                        }
+                    }
+                stage('In Parallel 2') {
+                        steps {
+                            echo "In Parallel 2"
+                            sleep 1
+                    }
+                }
+                stage('In Parallel 3') {
+                        steps {
+                            echo "In Parallel 3"
+                            sleep 1
+                    }
+                }
+            }
+        }
         stage('Stage One') {           
             steps { 
                     sh '''
@@ -50,8 +72,10 @@ pipeline {
 
         stage('Stage THREE') {
             when {  
-                branch 'dev' 
-                changeset "**/*.js"
+                anyOf {
+                   branch 'dev' 
+                   changeset "**/*.js"
+                }
 
             }
             steps {
