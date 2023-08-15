@@ -54,10 +54,10 @@ pipeline {
             }   
         }     
 
-        stage('Stage TWO') {
-            environment {
-                ENV_URL = "stage.google.com"                  // Stage  variable 
-            }
+//        stage('Stage TWO') {
+//            environment {
+//                ENV_URL = "stage.google.com"                  // Stage  variable 
+//            }
 
             // input {
             //    message "Should we continue?"
@@ -68,30 +68,30 @@ pipeline {
             //    }
             // }
 
-            steps {
-                echo "This is stage two"  
-                sleep 10                       
-            }
-        }
+//            steps {
+//                echo "This is stage two"  
+//                sleep 10                       
+//            }
+//        }
 
-        stage('Stage THREE') {
-            when {  
-                anyOf {
-                   branch 'dev' 
-                   changeset "**/*.js"
-                }
+//        stage('Stage THREE') {
+//            when {  
+//                anyOf {
+//                   branch 'dev' 
+//                   changeset "**/*.js"
+//                }
 
-            }
-            steps {
-                sh '''
-                echo "This is stage three"
-                echo "Name of the URL is ${ENV_URL}"
-                echo -e "\\e[31m Hai"
-                sleep 1 
+//            }
+//            steps {
+//                sh '''
+//                echo "This is stage three"
+//                echo "Name of the URL is ${ENV_URL}"
+//                echo -e "\\e[31m Hai"
+//                sleep 1 
 
-                '''
-            }
-        }
+//                '''
+//            }
+//        }
 
 //        stage('Stage FOUR') {
 //            steps {                 
@@ -118,5 +118,7 @@ pipeline {
 node {
     stage('Test') {
             print 'Welcome to Scripted Pipeline'
+            }
+        }
     }
 }
