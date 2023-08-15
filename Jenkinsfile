@@ -93,22 +93,30 @@ pipeline {
             }
         }
 
-        stage('Stage FOUR') {
-            steps {                 
-                 sh ''' 
-                 echo "This is stage Four"
-                 echo "Name of the URL is ${ENV_URL}"
-                 echo -e "\\e[31m Welcome"
-                 sleep 1 
+//        stage('Stage FOUR') {
+//            steps {                 
+//                 sh ''' 
+//                 echo "This is stage Four"
+//                 echo "Name of the URL is ${ENV_URL}"
+//                 echo -e "\\e[31m Welcome"
+//                 sleep 1 
 
-                 '''
-            }
-        }
-    }
+//                 '''
+//            }
+//        }
+//    }
 
-    post { 
-        always { 
-            cleanWs()
-        }
+//   post { 
+//        always { 
+//            cleanWs()
+//       }
+//   }
+// }
+
+// Examples of scripted pipeline
+
+node {
+    stage('Test') {
+            print 'Welcome to Scripted Pipeline'
     }
 }
