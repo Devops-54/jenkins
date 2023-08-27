@@ -1,4 +1,4 @@
- pipeline {
+pipeline {
     agent {
         label 'WS'
     }
@@ -17,7 +17,7 @@
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
 
-    triggers { pollSCM('*/1 * * * *') }
+    // triggers { pollSCM('*/1 * * * *') }
 
     stages {
         stage('Parallel Stages') {
@@ -62,14 +62,14 @@
                 ENV_URL = "stage.google.com"                  // Stage  variable 
             }
 
-            input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                submitter "alice,bob"
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                }
-            }
+            // input {
+            //    message "Should we continue?"
+            //    ok "Yes, we should."
+            //    submitter "alice,bob"
+            //    parameters {
+            //        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+            //    }
+            // }
 
             steps {
                 echo "This is stage two"  
@@ -109,12 +109,11 @@
         }
     }
 
-   post { 
+    post { 
         always { 
             cleanWs()
-       }
-   }
-}
+        }
+    }
 
 // Examples of scripted pipeline
 
